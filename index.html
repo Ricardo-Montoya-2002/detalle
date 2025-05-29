@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Ti, Mi Amor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Para ti, mi amor ❤️</h1>
+  <div id="reason-box">Presiona el botón para descubrir una razón por la que te amo.</div>
+  <button onclick="showReason()">💌 Ver razón</button>
+
+  <div class="hearts" id="hearts"></div>
+
+  <script>
+    const reasons = [
+      "Eres la persona que me hace sonreír sin razón.",
+      "Admiro tu fuerza y tu dulzura.",
+      "Cada día contigo es un regalo.",
+      "Tienes el poder de hacerme feliz con una sola mirada.",
+      "Eres mi paz, mi hogar y mi todo."
+    ];
+
+    function showReason() {
+      const box = document.getElementById('reason-box');
+      const reason = reasons[Math.floor(Math.random() * reasons.length)];
+      box.textContent = reason;
+    }
+
+    // Animación de corazones flotando
+    const heartsContainer = document.getElementById('hearts');
+    for (let i = 0; i < 25; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 5 + Math.random() * 5 + 's';
+      heart.style.opacity = Math.random();
+      heart.style.transform = `scale(${Math.random()}) rotate(45deg)`;
+      heartsContainer.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
